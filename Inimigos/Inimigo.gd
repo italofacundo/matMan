@@ -11,6 +11,8 @@ onready var _player = get_node_or_null(path_to_player)
 onready var _timer: Timer = $Timer
 onready var _sprite: AnimatedSprite = $InimigoSprite
 
+signal playerHit
+
 func _ready() -> void:
     _timer.wait_time = 0.5
     _timer.autostart = true
@@ -51,5 +53,8 @@ func _on_InimigoArea2D_area_entered(area):
         print("Colisão entre inimigos")
         queue_free()
     if area.name == "PlayerArea2D":
-        Global.lives -= 1
-        print("Colisão inimigo-player. Vidas = " + str(Global.lives))
+        emit_signal("playerHit")
+        disconnect("playerHit", self, "_on_InimigoArea2D_area_entered")
+
+func _on_Inimigo_playerHit():
+    emit_signal("playerHit")

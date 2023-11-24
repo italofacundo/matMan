@@ -45,4 +45,5 @@ func get_animation_name(direction):
 func update_score(value):
     score += value
     Global.score = score
+    print(Global.score)
 

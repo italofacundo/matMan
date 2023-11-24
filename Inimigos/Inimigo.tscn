@@ -124,3 +124,5 @@ shape = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[connection signal="playerHit" from="." to="." method="_on_Inimigo_playerHit"]
