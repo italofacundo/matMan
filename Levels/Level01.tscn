@@ -22,7 +22,7 @@
 [ext_resource path="res://itens/numero(-3).gd" type="Script" id=20]
 [ext_resource path="res://itens/numero(-4).gd" type="Script" id=21]
 [ext_resource path="res://itens/numero(-5).gd" type="Script" id=22]
-[ext_resource path="res://Levels/Global.gd" type="Script" id=23]
+[ext_resource path="res://Levels/Level01.gd" type="Script" id=23]
 [ext_resource path="res://2D Pixel Dungeon Asset Pack/Dungeon_Tileset_at.png" type="Texture" id=25]
 [ext_resource path="res://Levels/Navigation2D.gd" type="Script" id=26]
 [ext_resource path="res://Inimigos/Inimigo2.tscn" type="PackedScene" id=27]
@@ -61,6 +61,7 @@ outlines = [ PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 ) ]
 0/z_index = 0
 
 [node name="Level01" type="Node2D"]
+script = ExtResource( 23 )
 
 [node name="HUD" parent="." instance=ExtResource( 13 )]
 
@@ -112,9 +113,6 @@ script = ExtResource( 21 )
 position = Vector2( 231, 368 )
 script = ExtResource( 22 )
 
-[node name="Global" type="Node" parent="."]
-script = ExtResource( 23 )
-
 [node name="Navigation2D" type="Navigation2D" parent="."]
 z_index = -1
 script = ExtResource( 26 )
@@ -142,4 +140,5 @@ path_to_player = NodePath("../../Player")
 position = Vector2( 885, 210 )
 path_to_player = NodePath("../../Player")
 
+[connection signal="playerDied" from="Player" to="Player" method="_on_Player_playerDied"]
 [connection signal="body_entered" from="numeros/numero(+1)" to="Player" method="_on_numero1_body_entered"]

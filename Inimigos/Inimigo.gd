@@ -54,7 +54,3 @@ func _on_InimigoArea2D_area_entered(area):
         queue_free()
     if area.name == "PlayerArea2D":
         emit_signal("playerHit")
-        disconnect("playerHit", self, "_on_InimigoArea2D_area_entered")
-
-func _on_Inimigo_playerHit():
-    emit_signal("playerHit")
