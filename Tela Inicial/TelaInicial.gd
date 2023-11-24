@@ -1,6 +1,5 @@
 extends Control
 
-
 func _ready():
 	$controles/iniciarBTN.grab_focus()
 
