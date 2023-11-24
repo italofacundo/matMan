@@ -16,31 +16,32 @@ var navigation
 signal timeEnded
 
 func _ready():
-    pass
+	pass
 
 func _process(delta):
-    time -= delta
-    if time <= 0:
-        time = 0
-        emit_signal("timeEnded")
-        
-    if lives == 0:
-        lives = 3
-        print("GAME OVER!")
-        get_tree().change_scene("res://Tela Inicial/TelaGameOver.tscn")
+	time -= delta
+	if time <= 0:
+		time = 0
+		emit_signal("timeEnded")
+		
+	if lives == 0:
+		lives = 3
+		print("GAME OVER!")
+		get_tree().change_scene("res://Tela Inicial/TelaGameOver.tscn")
 
-    if score == neededScore:
-        print("YOU WIN")
-        get_tree().change_scene("res://Tela Inicial/TelaVitoria.tscn")
-    
+	if score == neededScore:
+		score = 0
+		print("YOU WIN")
+		get_tree().change_scene("res://Tela Inicial/TelaVitoria.tscn")
+	
 func reset_current_scene():
-    get_tree().reload_current_scene()
+	get_tree().reload_current_scene()
 
 func _on_player_hit():
-    lives -= 1
-    print("Colisão inimigo-player. Vidas = " + str(lives))
-    reset_current_scene()
+	lives -= 1
+	print("Colisão inimigo-player. Vidas = " + str(lives))
+	reset_current_scene()
 
 func _on_player_died():
-    print("GAME OVER")
-    reset_current_scene()
+	print("GAME OVER")
+	reset_current_scene()
