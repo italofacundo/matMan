@@ -17,8 +17,8 @@ func _ready() -> void:
     _timer.one_shot = false
     _timer.start()
     _timer.connect("timeout", self, "_update_pathfinding")
-    $Area2D.connect("body_entered", self, "_on_Area2D_body_entered")
-    
+    $InimigoArea2D.connect("area_entered", self, "_on_InimigoArea2D_area_entered")
+
 func _physics_process(delta: float) -> void:
     if not _player or path.size() == 0:
         return
@@ -46,7 +46,10 @@ func _update_pathfinding() -> void:
     if _player:
         path = _navigation.get_simple_path(global_position, _player.global_position, false)
 
-func _on_Area2D_body_entered(body):
-    if body != self and body.is_in_group("enemy"):
-        print("collision")
+func _on_InimigoArea2D_area_entered(area):
+    if area.name == "InimigoArea2D":
+        print("Colisão entre inimigos")
         queue_free()
+    if area.name == "PlayerArea2D":
+        Global.lives -= 1
+        print("Colisão inimigo-player. Vidas = " + str(Global.lives))
