@@ -7,6 +7,9 @@ func _ready():
     Global.neededScorePath = $HUDContainer/PontosNecessariosContainer/PontosNecessariosValor
 
 func _process(delta):
+    update_hud()
+
+func update_hud():
     var current_score_text = str(Global.score)
     if $HUDContainer/PontosContainer/PontosValor.text != current_score_text:
         $HUDContainer/PontosContainer/PontosValor.text = current_score_text

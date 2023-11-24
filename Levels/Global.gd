@@ -14,6 +14,7 @@ var player
 var navigation
 
 signal timeEnded
+signal updateHud
 
 func _ready():
     pass
@@ -24,10 +25,10 @@ func _process(delta):
         time = 0
         emit_signal("timeEnded")
     if lives == 0:
-        if check_hud_updated(livesPath, score):
-            lives = 3
-            print("GAME OVER!")
-            get_tree().paused = true
+        emit_signal("updateHud")
+        lives = 3
+        print("GAME OVER!")
+        get_tree().paused = true
 
     if score == neededScore:
         if check_hud_updated(scorePath, score):
@@ -38,6 +39,7 @@ func check_hud_updated(hudPath, testVariable):
     return hudPath.text == str(testVariable)
     
 func reset_current_scene():
+    print(lives)
     get_tree().reload_current_scene()
 
 func _on_player_hit():
