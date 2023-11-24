@@ -23,14 +23,15 @@ func _process(delta):
     if time <= 0:
         time = 0
         emit_signal("timeEnded")
+        
     if lives == 0:
         lives = 3
         print("GAME OVER!")
-        get_tree().paused = true
+        get_tree().change_scene("res://Tela Inicial/TelaGameOver.tscn")
 
     if score == neededScore:
         print("YOU WIN")
-        get_tree().paused = true
+        get_tree().change_scene("res://Tela Inicial/TelaVitoria.tscn")
     
 func reset_current_scene():
     get_tree().reload_current_scene()

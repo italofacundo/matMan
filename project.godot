@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Projeto Test MatMan"
-run/main_scene="res://Levels/Level01.tscn"
+run/main_scene="res://Tela Inicial/TelaInicial.tscn"
 config/icon="res://icon.png"
 
 [autoload]

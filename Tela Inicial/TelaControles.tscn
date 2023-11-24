@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://2D Pixel Dungeon Asset Pack/PressStart2P.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Tela Inicial/TelaControles.gd" type="Script" id=2]
+[ext_resource path="res://Tela Inicial/Anotação 2023-11-22 144201.png" type="Texture" id=3]
+[ext_resource path="res://Tela Inicial/Anotação 2023-11-22 144214.png" type="Texture" id=4]
+[ext_resource path="res://Tela Inicial/Anotação 2023-11-22 144224.png" type="Texture" id=5]
+[ext_resource path="res://Tela Inicial/Anotação 2023-11-22 144147.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=16]
+font_data = ExtResource( 1 )
+
+[node name="TelaControles" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.627451 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -374.0
+margin_top = 162.0
+margin_right = 538.0
+margin_bottom = 273.0
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = SubResource( 16 )
+text = "Controles com o Teclado:
+------------------------
+-Seta para a Esquerda: Move o personagem para a esquerda.
+-Seta para Baixo: Move o personagem para baixo.
+-Seta para a Direita: Move o personagem para a direita.
+-Seta para Cima: Move o personagem para cima."
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -425.0
+margin_top = 286.0
+margin_right = 615.0
+margin_bottom = 397.0
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = SubResource( 16 )
+text = "Controles com o Controle ESP (Joystick):
+----------------------------------------
+-Joystick para a Esquerda: Move o personagem na direção esquerda.
+-Joystick para Baixo: Move o personagem na direção para baixo.
+-Joystick para a Direita: Move o personagem na direção direita.
+-Joystick para Cima: Move o personagem na direção para cima."
+align = 1
+valign = 1
+
+[node name="Button" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -22.0
+margin_right = 108.0
+custom_fonts/font = SubResource( 16 )
+text = "Voltar"
+
+[node name="Anotação2023-11-22144147" type="Sprite" parent="."]
+position = Vector2( 206, 246 )
+scale = Vector2( 0.184, 0.186 )
+texture = ExtResource( 6 )
+
+[node name="Anotação2023-11-22144201" type="Sprite" parent="."]
+position = Vector2( 129, 198 )
+scale = Vector2( 0.184, 0.186 )
+texture = ExtResource( 3 )
+
+[node name="Anotação2023-11-22144214" type="Sprite" parent="."]
+position = Vector2( 193, 213 )
+scale = Vector2( 0.184, 0.186 )
+texture = ExtResource( 4 )
+
+[node name="Anotação2023-11-22144224" type="Sprite" parent="."]
+position = Vector2( 142, 229 )
+scale = Vector2( 0.184, 0.186 )
+texture = ExtResource( 5 )
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
